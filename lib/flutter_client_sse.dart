@@ -129,6 +129,10 @@ class SSEClient {
                     );
                 }
               },
+              onDone: () {
+                print('---STREAM DONE---');
+                streamController.close();
+              },
               onError: (e, s) {
                 print('---ERROR---');
                 print(e);
