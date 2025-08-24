@@ -23,16 +23,17 @@ class SSEClient {
       required Map<String, String> header,
       required StreamController<SSEModel> streamController,
       Map<String, dynamic>? body}) {
-    print('---RETRY CONNECTION---');
-    Future.delayed(Duration(seconds: 5), () {
-      subscribeToSSE(
-        method: method,
-        url: url,
-        header: header,
-        body: body,
-        oldStreamController: streamController,
-      );
-    });
+    streamController.addError('sse error');
+    streamController.close();
+    // Future.delayed(Duration(seconds: 5), () {
+    //   subscribeToSSE(
+    //     method: method,
+    //     url: url,
+    //     header: header,
+    //     body: body,
+    //     oldStreamController: streamController,
+    //   );
+    // });
   }
 
   /// Subscribe to Server-Sent Events.
