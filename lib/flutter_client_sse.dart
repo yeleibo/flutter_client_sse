@@ -24,7 +24,6 @@ class SSEClient {
       required StreamController<SSEModel> streamController,
       Map<String, dynamic>? body}) {
     streamController.addError('sse error');
-    streamController.close();
     // Future.delayed(Duration(seconds: 5), () {
     //   subscribeToSSE(
     //     method: method,
